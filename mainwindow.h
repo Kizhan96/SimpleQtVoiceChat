@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <qpushbutton.h>
+#include <QMenu>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,6 +18,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void showContextMenu(QPushButton *button, const QPoint &pos);
+
+private slots:
+    void removeButton(QPushButton *button);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
