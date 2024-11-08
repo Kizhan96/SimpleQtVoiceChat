@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    ui->servers_VLayout->addSpacerItem(verticalSpacer);
+    //QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    //ui->servers_VLayout->addSpacerItem(verticalSpacer);
 
 }
 
@@ -42,6 +42,11 @@ void MainWindow::removeButton(QPushButton *button)
 void MainWindow::on_pushButton_clicked()
 {
     QPushButton *newButton = new QPushButton(QString::number(ui->servers_VLayout->count()), this);
+    newButton->setFixedHeight(50);
+    newButton->setFixedWidth(50);
+    QRect rect(0,0,48,48);
+    QRegion region(rect, QRegion::Ellipse);
+    newButton->setMask(region);
 
     // Устанавливаем политику для вызова контекстного меню
     newButton->setContextMenuPolicy(Qt::CustomContextMenu);
