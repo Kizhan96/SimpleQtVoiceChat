@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "settingswindow.h"
 #include <QMainWindow>
 #include <qpushbutton.h>
 #include <QMenu>
@@ -25,7 +26,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void openSettings();
+
 private:
     Ui::MainWindow *ui;
+    SettingsWindow *settingsWindow;
 };
 #endif // MAINWINDOW_H

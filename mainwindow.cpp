@@ -4,13 +4,13 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow), settingsWindow(new SettingsWindow(this))
 {
     ui->setupUi(this);
 
     //QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
     //ui->servers_VLayout->addSpacerItem(verticalSpacer);
-
+    connect(ui->settingsButton, &QPushButton::clicked, this, &MainWindow::openSettings);
 }
 
 MainWindow::~MainWindow()
@@ -59,3 +59,7 @@ void MainWindow::on_pushButton_clicked()
     ui->servers_VLayout->insertWidget(ui->servers_VLayout->count() - 1, newButton);
 }
 
+void MainWindow::openSettings()
+{
+    settingsWindow->exec();  // Открытие окна настроек
+}
