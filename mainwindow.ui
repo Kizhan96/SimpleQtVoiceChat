@@ -60,7 +60,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="mainWindowServerAddButton">
           <property name="maximumSize">
            <size>
             <width>50</width>

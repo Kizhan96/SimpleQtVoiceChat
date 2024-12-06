@@ -5,6 +5,9 @@
 #include <QMainWindow>
 #include <qpushbutton.h>
 #include <QMenu>
+#include <QSettings>
+#include <QDir>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,14 +25,19 @@ public:
     void showContextMenu(QPushButton *button, const QPoint &pos);
 
 private slots:
-    void removeButton(QPushButton *button);
+    void contextMenuConnectButton(QPushButton *button);
+    void contextMenuChangeButton(QPushButton *button);
+    void contextMenuRemoveButton(QPushButton *button);
 
-    void on_pushButton_clicked();
 
     void openSettings();
+
+    void on_mainWindowServerAddButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     SettingsWindow *settingsWindow;
+    VoiceClient *client;
+
 };
 #endif // MAINWINDOW_H
